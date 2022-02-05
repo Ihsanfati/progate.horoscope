@@ -1,0 +1,42 @@
+//Ihsan Fadli Tampati, Latihan DOM progate
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Horoskop</title>
+  </head>
+
+  <body>
+    <h1><strong>Program Horoskop</strong></h1>
+    <button>Klik disini!</button>
+    <p>Keberuntungan Anda hari ini:</p>
+    <hr></hr>
+    <div id = "hasil"></div>
+    <script>
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", function() {
+          this.innerHTML = "Coba lagi!";
+          this.style.color = "blue";
+
+          let number = Math.round(Math.random() * 10); //Math.random() = return random number antara 0 - 1
+          
+          console.log(number);
+
+          function horoscope(randomNumber) {
+            if(randomNumber >= 8 && randomNumber <= 10) { //peluang "Hebat!" = 20%
+              return "Hebat!!";
+            }else if(randomNumber >= 3 && randomNumber <= 8) { //peluang "Boleh juga!" = 60%
+              return "Boleh juga!";
+            }else{ //peluang "Mengerikan" = 20%
+              return "Mengerikan..";
+            }
+          }
+
+          const hasil = document.getElementById("hasil");
+          const newTag = document.createElement("p");
+          newTag.innerHTML = horoscope(number);
+          hasil.append(newTag);
+        });
+    </script>
+  </body>
+</html>
